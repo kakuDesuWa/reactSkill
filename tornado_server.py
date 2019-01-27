@@ -3,14 +3,28 @@ import os
 import tornado
 import tornado.ioloop
 import tornado.web
+import tornado.gen
 from tornado.options import define, options
 
 
 
 class MainHandler(tornado.web.RequestHandler):
 
-    def get(self):
-        self.render('add_react_in_one_minute.html')
+    async def get(self):
+        self.add_header("Access-Control-Allow-Origin", "*")
+        # self.render('add_react_in_one_minute.html')
+        self.write('1 second passed')
+        self.flush()
+        await tornado.gen.sleep(1)
+        self.finish("Over!")
+        # self.finish(
+        #     {
+        #         "items": [
+        #             { "id": 1, "name": "Apples",  "price": "$2" },
+        #             { "id": 2, "name": "Peaches", "price": "$5" }
+        #         ]
+        #     }
+        # )
 
 
 def main():

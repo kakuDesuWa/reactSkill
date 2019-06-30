@@ -7,7 +7,7 @@ import Box from '@material-ui/core/Box';
 
 import axios from 'axios'
 
-axios.defaults.baseURL = 'https://test-oauth.ihuhoo.com';
+axios.defaults.baseURL = 'https://test-oauth3.tigerfintech.com';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 const styles = theme => ({
